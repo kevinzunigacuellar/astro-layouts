@@ -7,11 +7,19 @@ importers:
 
   demo:
     specifiers:
-      add: workspace:^0.0.0
+      add: workspace:*
       astro: ^1.6.0
+      substract: workspace:*
     dependencies:
       add: link:../packages/add
       astro: 1.6.3
+      substract: link:../packages/substract
+
+  packages/add:
+    specifiers: {}
+
+  packages/substract:
+    specifiers: {}
 
 packages:
 

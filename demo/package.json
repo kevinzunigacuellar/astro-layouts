@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "add": "workspace:*",
-    "astro": "^1.6.0"
+    "astro": "^1.6.0",
+    "substract": "workspace:*"
   }
 }
