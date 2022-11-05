@@ -16,6 +16,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "directory": "packages/add"
+    "directory": "packages/substract"
   }
 }

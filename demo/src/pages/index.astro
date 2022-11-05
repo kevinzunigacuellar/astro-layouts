@@ -1,6 +1,7 @@
 ---
 import { add } from 'add';
 import { substract } from 'substract';
+import { Component } from 'astro-component';
 
 const result = add(1,5)
 const result2 = substract(10,5)
@@ -18,5 +19,6 @@ const result2 = substract(10,5)
 		<h1>Astro</h1>
 		<p>{ result }</p>
 		<p>{ result2 }</p>
+		<Component />
 	</body>
 </html>

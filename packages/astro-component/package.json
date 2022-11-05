@@ -1,0 +1,22 @@
+{
+  "name": "astro-component",
+  "version": "0.0.1",
+  "description": "this is a test astro component",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "files": [
+    "index.ts",
+    "Component.astro"
+  ],
+  "keywords": [],
+  "author": "Kevin Zuniga Cuellar",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "directory": "packages/astro-component"
+  },
+  "devDependencies": {
+    "astro": "1.3.0"
+  }
+}
