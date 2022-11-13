@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/kevinzunigacuellar/astro-layouts"
   },
-  "keywords": [],
+  "keywords": ["withastro"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/kevinzunigacuellar/astro-layouts/issues"
