@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Base layout</title>
+    <body>
+      <h1>Welcome to default layouts</h1>
+      <slot />
+    </body>
+  </head>
+</html>
+
+<style>
+  nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+  }
+  nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav li {
+    margin-right: 10px;
+  }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+</style>

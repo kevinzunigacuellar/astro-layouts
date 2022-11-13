@@ -11,9 +11,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "add": "workspace:*",
+    "@astrojs/mdx": "^0.11.6",
     "astro": "^1.6.3",
-    "astro-component": "workspace:*",
-    "substract": "workspace:*"
+    "astro-layouts": "workspace:*"
   }
 }
