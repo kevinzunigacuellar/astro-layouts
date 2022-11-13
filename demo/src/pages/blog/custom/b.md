@@ -2,6 +2,6 @@
 layout: /src/layouts/Blog.astro
 ---
 
-hello from "/blog/custom/b"
+I am a markdown file inside `pages/blog/custom` directory
 
-**but I would like to set this layout to blog**
+I am using the `Blog.astro` layout
