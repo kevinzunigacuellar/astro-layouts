@@ -1,15 +1,23 @@
 {
-  "name": "workspace-template",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "root",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "pnpm --filter demo dev",
-    "lint": "prettier -w \"**/*.{js,ts,md,mjs,cjs,json}\""
+    "lint": "prettier \"**/*.{js,ts,md,mjs,cjs,json}\"",
+    "format": "pnpm -w run lint --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinzunigacuellar/astro-layouts"
   },
   "keywords": [],
-  "author": "Kevin Zuniga Cuellar",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevinzunigacuellar/astro-layouts/issues"
+  },
+  "homepage": "https://github.com/kevinzunigacuellar/astro-layouts#readme",
   "devDependencies": {
     "prettier": "^2.7.1"
   }

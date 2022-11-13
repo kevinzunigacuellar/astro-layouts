@@ -1,6 +1,15 @@
 {
   "name": "astro-layouts",
+  "type": "module",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevinzunigacuellar/astro-layouts"
+  },
+  "bugs": {
+    "url": "https://github.com/kevinzunigacuellar/astro-layouts/issues"
+  },
+  "homepage": "https://github.com/kevinzunigacuellar/astro-layouts#README",
   "description": "folder-based layouts for your md and mdx files",
   "exports": {
     ".": "./index.ts"
@@ -12,10 +21,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Kevin Zuniga Cuellar",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "directory": "packages/astro-layouts"
-  }
+  "author": {
+    "name": "Kevin Zuniga Cuellar",
+    "url": "https://twitter.com/kevinzunigacuel"
+  },
+  "license": "MIT"
 }
