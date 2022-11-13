@@ -34,7 +34,7 @@ export default defineConfig({
 });
 ```
 
-## API
+## Options API
 
 ### `default`
 
