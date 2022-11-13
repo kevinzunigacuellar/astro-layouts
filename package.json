@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm --filter demo dev",
-    "lint": "prettier \"**/*.{js,ts,md,json}\""
+    "lint": "prettier -w \"**/*.{js,ts,md,json}\""
   },
   "keywords": [],
   "author": "Kevin Zuniga Cuellar",

@@ -1,7 +1,7 @@
 {
-  "name": "substract",
+  "name": "astro-layouts",
   "version": "0.0.1",
-  "description": "this is a test package number 2",
+  "description": "folder-based layouts for your md and mdx files",
   "exports": {
     ".": "./index.ts"
   },
@@ -16,6 +16,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "directory": "packages/substract"
+    "directory": "packages/astro-layouts"
   }
 }
