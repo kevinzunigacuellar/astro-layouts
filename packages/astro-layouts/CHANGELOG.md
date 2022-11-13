@@ -1,5 +1,11 @@
 # astro-layouts
 
+## 0.0.3
+
+### Patch Changes
+
+- 8e91883: remove demo and update changelog config
+
 ## 0.0.2
 
 ### Patch Changes
