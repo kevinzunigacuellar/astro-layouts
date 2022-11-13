@@ -38,7 +38,7 @@ export default defineConfig({
 
 ### `default`
 
-The `default` option is used to define a default layout for all your files files.
+The `default` key is used to define a default layout for all your files.
 
 ```js
 {
@@ -48,9 +48,9 @@ The `default` option is used to define a default layout for all your files files
 
 ### Other options
 
-The object can have any other key, which will be used to define a layout for a specific folder.
+The object can have any other key, which will be used to define a layout for a specific folder or subfolder.
 
-The `key` is the folder name in pages, and the `value` is the path to the layout file.
+The `key` is the folder or subfolder path in pages, and the `value` is the path to the layout file.
 
 ```js
 {
@@ -64,9 +64,7 @@ The `key` is the folder name in pages, and the `value` is the path to the layout
 
 ### Folder-based layouts
 
-To define a folder-based layout, add a new property to the options object with the folder name as the key, and the path to the layout file as the value.
-
-They key will be used to match the folder name in the `pages` directory.
+To define a folder-based layout, add a new property to the options object. The `key` is the folder path in `pages` and the `value` is the path to the layout file.
 
 ```js
 {
@@ -75,11 +73,9 @@ They key will be used to match the folder name in the `pages` directory.
 }
 ```
 
-The key can be a nested folder, like `blog/foo`.
-
-> Note:
+> **Note**
 > All files will inherit layouts from their closest defined parent directory.
-> The file `pages/blog/foo/bar.md` will use the layout defined in `blog`.
+> For example using the configuration above, the file `pages/blog/foo/bar.md` will use the layout defined in `blog`.
 
 ### Default layout
 
@@ -91,9 +87,9 @@ To define a default layout, add a `default` property to the options object with 
 }
 ```
 
-## Overriding layouts
+### Overriding layouts
 
-You can override the layout defined in the `astro.config.mjs` file by adding a `layout` property to the frontmatter of your markdown file.
+You can override any layout defined in the `astro.config.mjs` file by adding a `layout` property to the frontmatter of your markdown file.
 
 ```md
 # pages/blog/b.md
@@ -102,6 +98,3 @@ layout: /src/layouts/Custom.astro
 ---
 This page is now using the `Custom.astro` layout instead of the `BlogLayout.astro` layout.
 ```
-
-
-
