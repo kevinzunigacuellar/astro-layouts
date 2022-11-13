@@ -34,107 +34,74 @@ export default defineConfig({
 });
 ```
 
-If you would like to extend this package to work with mdx, you can do so by adding the following to your `astro.config.mjs` file:
+## API
+
+### `default`
+
+The `default` option is used to define a default layout for all your files files.
 
 ```js
-// astro.config.mjs
-import astroLayouts from "astro-layouts";
-import mdx from "@astrojs/mdx";
-
-export default defineConfig({
-  markdown: {
-    remarkPlugins: [
-      [
-        astroLayouts,
-        {
-          default: "/src/layouts/Layout.astro",
-          blog: "/src/layouts/BlogLayout.astro",
-          "blog/foo": "/src/layouts/FooLayout.astro",
-        },
-      ],
-    ],
-  },
-  integrations: [ mdx({ extendPlugins: true })],
-});
+{
+  default: "/src/layouts/Layout.astro",
+}
 ```
 
+### Other options
 
-## Examples:
+The object can have any other key, which will be used to define a layout for a specific folder.
 
-### Basics
-
-- Add a default layout to all pages:
+The `key` is the folder name in pages, and the `value` is the path to the layout file.
 
 ```js
-// astro.config.mjs
-import astroLayouts from "astro-layouts";
-
-export default defineConfig({
-  markdown: {
-    remarkPlugins: [
-      [
-        astroLayouts,
-        {
-          default: "/src/layouts/Layout.astro",
-        },
-      ],
-    ],
-  },
-});
+{
+  blog: "/src/layouts/BlogLayout.astro",
+  "blog/foo": "/src/layouts/FooLayout.astro",
+  default: "/src/layouts/Layout.astro",
+}
 ```
 
-- Add a `BlogLayout.astro` to all pages in the `pages/blog` directory:
+## Usage 
+
+### Folder-based layouts
+
+To define a folder-based layout, add a new property to the options object with the folder name as the key, and the path to the layout file as the value.
+
+They key will be used to match the folder name in the `pages` directory.
 
 ```js
-// astro.config.mjs
-export default defineConfig({
-  markdown: {
-    remarkPlugins: [
-      [
-        astroDefaultLayouts,
-        {
-          blog: "/src/layouts/BlogLayout.astro",
-        },
-      ],
-    ],
-  },
-});
+{
+  blog: "/src/layouts/BlogLayout.astro",
+  "products/foo": "/src/layouts/FooLayout.astro",
+}
 ```
 
-- Add a `FooLayout.astro` to all pages in the `pages/blog/foo` directory:
+The key can be a nested folder, like `blog/foo`.
+
+> Note:
+> All files will inherit layouts from their closest defined parent directory.
+> The file `pages/blog/foo/bar.md` will use the layout defined in `blog`.
+
+### Default layout
+
+To define a default layout, add a `default` property to the options object with the path to the layout file as the value.
 
 ```js
-// astro.config.mjs
-export default defineConfig({
-  markdown: {
-    remarkPlugins: [
-      [
-        astroDefaultLayouts,
-        {
-          "blog/foo": "/src/layouts/FooLayout.astro",
-        },
-      ],
-    ],
-  },
-});
+{
+  default: "/src/layouts/Layout.astro",
+}
 ```
 
-- All files will inherit layouts from their closest defined parent directory:
+## Overriding layouts
+
+You can override the layout defined in the `astro.config.mjs` file by adding a `layout` property to the frontmatter of your markdown file.
 
 ```md
-# pages/blog/a/b/custom.md
-
-This page uses the `BlogLayout.astro` layout inherited from the `blog` directory
+# pages/blog/b.md
+---
+layout: /src/layouts/Custom.astro
+---
+This page is now using the `Custom.astro` layout instead of the `BlogLayout.astro` layout.
 ```
 
-- **Need an override?** Add a specific layout to a single page:
 
-```md
-# pages/blog/custom.md
----
-layout: "/src/layouts/CustomLayout.astro"
----
 
-This page will use the `CustomLayout.astro` layout instead of the `BlogLayout.astro` layout
-
-```
