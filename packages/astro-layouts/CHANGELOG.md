@@ -1,5 +1,11 @@
 # astro-layouts
 
+## 0.0.4
+
+### Patch Changes
+
+- 804b242: update readme.md
+
 ## 0.0.3
 
 ### Patch Changes
