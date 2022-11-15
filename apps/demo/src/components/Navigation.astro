@@ -1,8 +1,9 @@
 <ul>
   <li><a href="/">Home</a></li>
   <li><a href="/blog/">Blog</a></li>
-  <li><a href="/blog/foo/bar/">Blog/foo/bar</a></li>
-  <li><a href="/blog/custom/">Blog/custom</a></li>
+  <li><a href="/blog/foo/bar/">Blog/foo/bar.md</a></li>
+  <li><a href="/blog/custom/">Blog/custom.md</a></li>
+  <li><a href="/blog/bar/subfolder/">Blog/bar/subfolder.md</a></li>
 </ul>
 <style>
   ul {
@@ -13,10 +14,18 @@
     padding: 2rem 0;
   }
   li {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
   a {
     text-decoration: none;
     color: #000;
+  }
+
+  @media (max-width: 768px) {
+    ul {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 0 1rem;
+    }
   }
 </style>

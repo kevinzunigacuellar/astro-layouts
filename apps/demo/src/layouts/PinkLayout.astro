@@ -1,0 +1,36 @@
+---
+import Navigation from "../components/Navigation.astro";
+---
+<html>
+  <head>
+    <title>Pink Layout</title>
+  </head>
+  <body>
+    <Navigation />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    --background: #f9a8d4;
+    --text: #9d174d;
+  }
+  html, body {
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    background-color: var(--background);
+    font-family: sans-serif;
+  }
+  main {
+    font-size: 2rem;
+    text-align: center;
+    color: var(--text);
+  }
+</style>
