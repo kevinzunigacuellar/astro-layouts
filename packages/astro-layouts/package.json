@@ -21,10 +21,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["astro", "withastro", "astro-component"],
+  "keywords": [
+    "astro",
+    "withastro",
+    "astro-component"
+  ],
   "author": {
     "name": "Kevin Zuniga Cuellar",
     "url": "https://twitter.com/kevinzunigacuel"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "astro": "^1.6.7"
+  },
+  "peerDependencies": {
+    "astro": "^1.6.7"
+  }
 }
