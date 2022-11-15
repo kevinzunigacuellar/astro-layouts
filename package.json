@@ -10,9 +10,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kevinzunigacuellar/astro-layouts"
+    "url": "https://github.com/kevinzunigacuellar/astro-layouts",
+    "directory": "packages/astro-layouts"
   },
-  "keywords": ["withastro"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/kevinzunigacuellar/astro-layouts/issues"
