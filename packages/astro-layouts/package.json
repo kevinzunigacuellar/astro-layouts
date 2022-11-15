@@ -10,17 +10,18 @@
     "url": "https://github.com/kevinzunigacuellar/astro-layouts/issues"
   },
   "homepage": "https://github.com/kevinzunigacuellar/astro-layouts#README",
-  "description": "folder-based layouts for your md and mdx files",
+  "description": "folder-based and default layouts for your MD and MDX files",
   "exports": {
     ".": "./index.ts"
   },
   "files": [
+    "src",
     "index.ts"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["astro", "withastro", "astro-component"],
   "author": {
     "name": "Kevin Zuniga Cuellar",
     "url": "https://twitter.com/kevinzunigacuel"
