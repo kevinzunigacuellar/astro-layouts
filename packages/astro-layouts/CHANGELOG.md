@@ -1,5 +1,11 @@
 # astro-layouts
 
+## 0.0.6
+
+### Patch Changes
+
+- ad10ef5: Add tests, astro-remark types, and folder option
+
 ## 0.0.5
 
 ### Patch Changes
