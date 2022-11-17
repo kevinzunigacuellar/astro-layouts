@@ -24,11 +24,15 @@ import astroLayouts from "astro-layouts";
 
 export default defineConfig({
   markdown: {
-    remarkPlugins: [[astroLayouts, {
-        default: "/src/layouts/Layout.astro",
-        blog: "@layouts/BlogLayout.astro", // you can also use an alias
-      },
-    ]]
+    remarkPlugins: [
+      [
+        astroLayouts,
+        {
+          default: "/src/layouts/Layout.astro",
+          blog: "@layouts/BlogLayout.astro", // you can also use an alias
+        },
+      ],
+    ],
   },
 });
 ```
@@ -43,13 +47,19 @@ import astroLayouts from "astro-layouts";
 import mdx from "@astrojs/mdx";
 
 export default defineConfig({
-  integrations: [mdx({
-    remarkPlugins: [[astroLayouts, {
-        default: "/src/layouts/Layout.astro",
-        blog: "@layouts/BlogLayout.astro", // you can also use an alias
-      }
-    ]]
-  })],
+  integrations: [
+    mdx({
+      remarkPlugins: [
+        [
+          astroLayouts,
+          {
+            default: "/src/layouts/Layout.astro",
+            blog: "@layouts/BlogLayout.astro", // you can also use an alias
+          },
+        ],
+      ],
+    }),
+  ],
 });
 ```
 
@@ -68,11 +78,15 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   integrations: [mdx()],
   markdown: {
-    remarkPlugins: [[astroLayouts, {
-        default: "/src/layouts/Layout.astro",
-        blog: "@layouts/BlogLayout.astro", // you can also use an alias
-      }
-    ]]
+    remarkPlugins: [
+      [
+        astroLayouts,
+        {
+          default: "/src/layouts/Layout.astro",
+          blog: "@layouts/BlogLayout.astro", // you can also use an alias
+        },
+      ],
+    ],
   },
 });
 ```
@@ -112,7 +126,7 @@ Using the example bellow, the `BlogLayout.astro` will be used for all files in t
 
 ```js
 {
-  blog: "@layouts/BlogLayout.astro"
+  blog: "@layouts/BlogLayout.astro";
 }
 ```
 
@@ -131,8 +145,10 @@ You can override any layout defined in the `astro.config.mjs` file by adding a `
 
 ```md
 # pages/blog/b.md
+
 ---
-layout: /src/layouts/Custom.astro
----
+
+## layout: /src/layouts/Custom.astro
+
 This page is now using the `Custom.astro` layout instead of the `BlogLayout.astro` layout.
 ```

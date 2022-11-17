@@ -1,6 +1,9 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.2.0/schema.json",
-  "changelog": ["@changesets/cli/changelog", { "repo": "kevinzunigacuellar/astro-layouts"}],
+  "changelog": [
+    "@changesets/cli/changelog",
+    { "repo": "kevinzunigacuellar/astro-layouts" }
+  ],
   "commit": false,
   "fixed": [],
   "linked": [],
