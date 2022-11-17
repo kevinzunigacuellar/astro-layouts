@@ -3,7 +3,8 @@
     "moduleResolution": "node",
     "module": "ESNext",
     "allowJs": true,
-    "noEmit": true
+    "noEmit": true,
+    "lib": ["esnext", "dom"]
   },
   "include": ["index.ts", "src"]
 }

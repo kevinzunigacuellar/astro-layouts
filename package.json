@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "pnpm --filter demo dev",
     "lint": "prettier \"**/*.{js,ts,md,mjs,cjs,json}\"",
-    "format": "pnpm -w run lint --write"
+    "format": "pnpm -w run lint --write",
+    "test": "pnpm -r run test"
   },
   "repository": {
     "type": "git",

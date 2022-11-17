@@ -1,6 +1,9 @@
 import type { LayoutConfig } from "../types";
 
-export function findClosetsMatch(folterPath: string, ops: LayoutConfig) : string | undefined {
+export function findClosetsMatch(
+  folterPath: string,
+  ops: LayoutConfig
+): string | undefined {
   if (folterPath === "") {
     return ops.default;
   }

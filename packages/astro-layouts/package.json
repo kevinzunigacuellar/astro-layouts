@@ -19,7 +19,7 @@
     "index.ts"
   ],
   "scripts": {
-    "test": "vitest"
+    "test": "vitest run"
   },
   "keywords": [
     "astro",
