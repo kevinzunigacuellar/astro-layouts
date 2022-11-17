@@ -12,7 +12,7 @@ on:
 
 jobs:
   test:
-    name: "Test: ${{ matrix.os }} - ${{ matrix.node }}"
+    name: "Test: ${{ matrix.os }} - Node ${{ matrix.node }}"
     strategy:
       matrix:
         os: [ubuntu-latest]
