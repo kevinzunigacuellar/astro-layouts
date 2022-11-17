@@ -9,7 +9,7 @@ const options = {
   "blog/foo": "/src/layouts/Custom.astro",
 };
 
-test("add Base layout to all MD files", async () => {
+test("adds Base.astro layout to all files", async () => {
   const fileURL = new URL("pages/index.md", import.meta.url);
   const result = await renderMarkdown("# Hello, world!", {
     fileURL,
@@ -19,7 +19,7 @@ test("add Base layout to all MD files", async () => {
   expect(pageMetadata.frontmatter.layout).toBe(options.default);
 });
 
-test("add BlogLayout.astro layout to pages/blog", async () => {
+test("adds BlogLayout.astro layout to 'pages/blog'", async () => {
   const fileURL = new URL("pages/blog/index.md", import.meta.url);
   const result = await renderMarkdown("# Hello, world!", {
     fileURL,
@@ -29,7 +29,7 @@ test("add BlogLayout.astro layout to pages/blog", async () => {
   expect(pageMetadata.frontmatter.layout).toBe(options.blog);
 });
 
-test("add Custom.astro layout to pages/blog/foo", async () => {
+test("adds Custom.astro layout to 'pages/blog/foo'", async () => {
   const fileURL = new URL("pages/blog/foo/index.md", import.meta.url);
   const result = await renderMarkdown("# Hello, world!", {
     fileURL,
