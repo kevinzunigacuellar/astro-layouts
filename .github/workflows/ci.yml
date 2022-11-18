@@ -21,22 +21,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Setup PNPM
+      - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 7
-
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
           cache: pnpm
-
-      - name: Install Dependencies
+      - name: Install dependencies
         run: pnpm install
-
-      - name: Run Tests
+      - name: Run tests
         run: pnpm test
 
   release:
@@ -47,6 +43,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
       - name: Create Release Pull Request or Publish
         uses: changesets/action@v1
         with:
