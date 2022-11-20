@@ -126,7 +126,7 @@ The `folder` key is used to define a different location for your content files. 
 
 ### Default layout
 
-`default` is a special key that will be used as a fallback if no other layout is found.
+You can define a default layout for all your files in `src/pages` folder.
 
 ```js
 {
@@ -134,11 +134,22 @@ The `folder` key is used to define a different location for your content files. 
 }
 ```
 
-### Layout inheritance
+### Folder based layout
+
+You can define a layout for a folder or subfolder by using the folder path as a key.
+
+```js
+{
+  blog: "/src/layouts/BlogLayout.astro",
+  "products/foo": "@layouts/ProductLayout.astro",
+}
+```
+
+#### Layout inheritance
 
 If you have a layout defined for a folder, all subfolders will inherit the layout.
 
-Using the example bellow, the `BlogLayout.astro` will be used for all files in the `blog` folder and its subfolders.
+Using the example bellow, `BlogLayout.astro` will be used for all files in the `blog` folder and its subfolders.
 
 ```js
 {
