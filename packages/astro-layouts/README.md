@@ -22,17 +22,14 @@ Add the plugin to `markdown` options in your `astro.config.mjs` file:
 // astro.config.mjs
 import astroLayouts from "astro-layouts";
 
+const layoutOptions = {
+  default: "/src/layouts/Layout.astro",
+  blog: "@layouts/BlogLayout.astro", // you can also use an alias
+};
+
 export default defineConfig({
   markdown: {
-    remarkPlugins: [
-      [
-        astroLayouts,
-        {
-          default: "/src/layouts/Layout.astro",
-          blog: "@layouts/BlogLayout.astro", // you can also use an alias
-        },
-      ],
-    ],
+    remarkPlugins: [[astroLayouts, layoutOptions]],
   },
 });
 ```
@@ -46,18 +43,15 @@ Add the plugin to MDX options in your `astro.config.mjs` file:
 import astroLayouts from "astro-layouts";
 import mdx from "@astrojs/mdx";
 
+const layoutOptions = {
+  default: "/src/layouts/Layout.astro",
+  blog: "@layouts/BlogLayout.astro", // you can also use an alias
+};
+
 export default defineConfig({
   integrations: [
     mdx({
-      remarkPlugins: [
-        [
-          astroLayouts,
-          {
-            default: "/src/layouts/Layout.astro",
-            blog: "@layouts/BlogLayout.astro", // you can also use an alias
-          },
-        ],
-      ],
+      remarkPlugins: [[astroLayouts, layoutOptions]],
     }),
   ],
 });
@@ -75,18 +69,15 @@ Add the plugin to `markdown` options in your `astro.config.mjs` file:
 import astroLayouts from "astro-layouts";
 import mdx from "@astrojs/mdx";
 
+const layoutOptions = {
+  default: "/src/layouts/Layout.astro",
+  blog: "@layouts/BlogLayout.astro", // you can also use an alias
+};
+
 export default defineConfig({
   integrations: [mdx()],
   markdown: {
-    remarkPlugins: [
-      [
-        astroLayouts,
-        {
-          default: "/src/layouts/Layout.astro",
-          blog: "@layouts/BlogLayout.astro", // you can also use an alias
-        },
-      ],
-    ],
+    remarkPlugins: [[astroLayouts, layoutOptions]],
   },
 });
 ```
@@ -108,9 +99,11 @@ The options object can have any properties following the pattern:
 > **Note**
 > If you have aliases defined in your `tsconfig.json` file, you can use them to define a layout path.
 
-### Default layout
+### Special keys
 
-`default` is a special key that will be used as a fallback if no other layout is found.
+#### `default`
+
+The `default` key is used to define a default layout for all files.
 
 ```js
 {
@@ -118,11 +111,45 @@ The options object can have any properties following the pattern:
 }
 ```
 
-### Layout inheritance
+#### `folder`
+
+The `folder` key is used to define a different location for your content files. It is useful if your MD and MDX files are not in the `src/pages` folder. It defaults to `pages`.
+
+```js
+{
+  // this will look for files in the `src/content` folder
+  folder: "content",
+}
+```
+
+## Usage
+
+### Default layout
+
+You can define a default layout for all your files in `src/pages` folder.
+
+```js
+{
+  default: "/src/layouts/Layout.astro",
+}
+```
+
+### Folder based layout
+
+You can define a layout for a folder or subfolder by using the folder path as a key.
+
+```js
+{
+  blog: "/src/layouts/BlogLayout.astro",
+  "products/foo": "@layouts/ProductLayout.astro",
+}
+```
+
+#### Layout inheritance
 
 If you have a layout defined for a folder, all subfolders will inherit the layout.
 
-Using the example bellow, the `BlogLayout.astro` will be used for all files in the `blog` folder and its subfolders.
+Using the example bellow, `BlogLayout.astro` will be used for all files in the `blog` folder and its subfolders.
 
 ```js
 {
@@ -145,10 +172,8 @@ You can override any layout defined in the `astro.config.mjs` file by adding a `
 
 ```md
 # pages/blog/b.md
-
 ---
-
-## layout: /src/layouts/Custom.astro
-
+layout: /src/layouts/Custom.astro
+---
 This page is now using the `Custom.astro` layout instead of the `BlogLayout.astro` layout.
 ```
