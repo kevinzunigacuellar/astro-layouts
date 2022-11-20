@@ -3,7 +3,7 @@ import { renderMarkdown } from "@astrojs/markdown-remark";
 import type { LayoutConfig, Metadata } from "../src/types";
 import astroLayouts from "../index";
 
-const layoutOptions : LayoutConfig = {
+const layoutOptions: LayoutConfig = {
   folder: "posts",
   default: "/src/layouts/Base.astro",
 };
