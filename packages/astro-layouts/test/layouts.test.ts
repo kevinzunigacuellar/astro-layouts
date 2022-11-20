@@ -1,9 +1,9 @@
 import { test, expect } from "vitest";
 import { renderMarkdown } from "@astrojs/markdown-remark";
+import type { LayoutConfig, Metadata } from "../src/types";
 import plugin from "../index";
-import { Metadata } from "../src/types";
 
-const options = {
+const options : LayoutConfig = {
   default: "/src/layouts/Base.astro",
   blog: "/src/layouts/BlogLayout.astro",
   "blog/foo": "/src/layouts/Custom.astro",
