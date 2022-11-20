@@ -1,5 +1,11 @@
 # astro-layouts
 
+## 0.0.7
+
+### Patch Changes
+
+- 33644db: add folder option to target content outside of pages
+
 ## 0.0.6
 
 ### Patch Changes
