@@ -2,9 +2,8 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "module": "ESNext",
-    "allowJs": true,
     "noEmit": true,
-    "target": "ES6"
+    "target": "ESNext"
   },
   "include": ["src/index.ts"]
 }

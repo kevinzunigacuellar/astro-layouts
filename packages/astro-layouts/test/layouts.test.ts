@@ -1,6 +1,6 @@
 import { test, expect } from "vitest";
 import { renderMarkdown } from "@astrojs/markdown-remark";
-import astroLayouts from "../dist/index"
+import astroLayouts from "../src/index"
 
 test("adds Base.astro layout to all files in 'src/pages'", async () => {
   const fileURL = new URL("src/pages/index.md", import.meta.url);
