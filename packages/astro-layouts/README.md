@@ -58,7 +58,7 @@ export default defineConfig({
 Add the plugin to `markdown` options in your `astro.config.mjs` file:
 
 > **Note**
-> By default astro will extend the `markdown` options to MDX files when you add mdx to your project. Learn more in the [Astro documentation](https://docs.astro.build/en/guides/integrations-guide/mdx/#extendplugins).
+> By default, Astro extends the `markdown` options to MDX when you add mdx integration to your project. Read more about it in the [Astro docs](https://docs.astro.build/en/guides/integrations-guide/mdx/#extendplugins).
 
 ```js
 // astro.config.mjs
