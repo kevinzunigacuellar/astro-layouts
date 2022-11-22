@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "pnpm --filter demo dev",
     "lint": "prettier \"**/*.{js,ts,md,mjs,cjs,json}\"",
+    "dev": "pnpm --filter astro-layouts run dev",
     "format": "pnpm -w run lint --write",
     "test": "pnpm -r run test"
   },

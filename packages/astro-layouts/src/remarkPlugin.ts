@@ -1,20 +1,15 @@
-import type { LayoutConfig, Metadata } from "./types";
 import type { RemarkPlugin } from "@astrojs/markdown-remark";
-import { findClosetsMatch } from "./utils/finder";
+import micromatch from "micromatch";
 
-export const astroLayout: RemarkPlugin = (ops: LayoutConfig) => {
+export const astroLayout: RemarkPlugin = (options: Record<string, string>) => {
   return function (_tree, file) {
-    const [fullSlug] = file.history;
-    ops.folder = ops.folder || "pages";
-    // regex to remove the file and folder before pages
-    const folderPath = fullSlug
-      .replace(new RegExp(`.*\/${ops.folder}\/`), "")
-      .split("/")
-      .slice(0, -1)
-      .join("/");
-    delete ops.folder;
-    const metadata = file.data.astro as Metadata;
-    const layoutPath = findClosetsMatch(folderPath, ops);
-    metadata.frontmatter.layout = layoutPath;
+    const [filePath] = file.history;
+    const path = filePath.replace(/.*src\//, "");
+    for (const [glob, layoutPath] of Object.entries(options)) {
+      if (micromatch.isMatch(path, glob)) {
+        const metadata = file.data.astro as { frontmatter: { layout: string } };
+        metadata.frontmatter.layout = layoutPath;
+      }
+    }
   };
 };
