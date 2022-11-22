@@ -2,9 +2,8 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "module": "ESNext",
-    "allowJs": true,
     "noEmit": true,
-    "lib": ["esnext", "dom"]
+    "target": "ESNext"
   },
-  "include": ["index.ts", "src"]
+  "include": ["src"]
 }

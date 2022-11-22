@@ -10,15 +10,19 @@
     "url": "https://github.com/kevinzunigacuellar/astro-layouts/issues"
   },
   "homepage": "https://github.com/kevinzunigacuellar/astro-layouts#README",
-  "description": "folder-based and default layouts for your MD and MDX files",
+  "description": "remark plugin to add folder-based layouts to MD and MDX files in Astro",
   "exports": {
-    ".": "./index.ts"
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
   },
   "files": [
-    "src",
-    "index.ts"
+    "dist",
+    "CHANGELOG.md"
   ],
+  "types": "./dist/index.d.ts",
   "scripts": {
+    "build": "tsup src/index.ts --format esm --dts",
+    "dev": "tsup src/index.ts --watch --format esm",
     "test": "vitest run"
   },
   "keywords": [
@@ -34,9 +38,13 @@
   "devDependencies": {
     "@astrojs/markdown-remark": "^1.1.3",
     "astro": "^1.6.7",
+    "tsup": "^6.5.0",
     "vitest": "^0.25.2"
   },
   "peerDependencies": {
     "astro": "^1.6.7"
+  },
+  "dependencies": {
+    "micromatch": "^4.0.5"
   }
 }
