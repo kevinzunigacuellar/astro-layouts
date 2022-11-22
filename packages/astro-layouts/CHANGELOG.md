@@ -1,5 +1,11 @@
 # astro-layouts
 
+## 0.1.0
+
+### Minor Changes
+
+- bc341dc: Breaking changes: replace key folder paths for glob patterns
+
 ## 0.0.7
 
 ### Patch Changes
