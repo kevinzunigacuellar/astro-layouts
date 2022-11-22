@@ -1,5 +1,11 @@
 # astro-layouts
 
+## 0.1.1
+
+### Patch Changes
+
+- 5b3fa92: replace micromatch with picomatch
+
 ## 0.1.0
 
 ### Minor Changes
