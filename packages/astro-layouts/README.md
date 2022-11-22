@@ -1,6 +1,6 @@
 # astro-layouts
 
-Remark plugin to add **folder-based** and **default** layouts to your MD and MDX files in Astro 🚀
+Remark plugin to add **folder-based** to your MD and MDX files in Astro 🚀
 
 ## Installation
 
@@ -12,8 +12,6 @@ npm install astro-layouts
 
 ## Configuration
 
-Add the plugin to `remarkPlugins` in your `astro.config.mjs`
-
 ### Configuration with MD
 
 Add the plugin to `markdown` options in your `astro.config.mjs` file:
@@ -23,8 +21,7 @@ Add the plugin to `markdown` options in your `astro.config.mjs` file:
 import astroLayouts from "astro-layouts";
 
 const layoutOptions = {
-  default: "/src/layouts/Layout.astro",
-  blog: "@layouts/BlogLayout.astro", // you can also use an alias
+  "pages/**/*.md": "/src/layouts/Layout.astro",
 };
 
 export default defineConfig({
@@ -44,8 +41,7 @@ import astroLayouts from "astro-layouts";
 import mdx from "@astrojs/mdx";
 
 const layoutOptions = {
-  default: "/src/layouts/Layout.astro",
-  blog: "@layouts/BlogLayout.astro", // you can also use an alias
+  "pages/**/*.mdx": "/src/layouts/Layout.astro",
 };
 
 export default defineConfig({
@@ -70,8 +66,7 @@ import astroLayouts from "astro-layouts";
 import mdx from "@astrojs/mdx";
 
 const layoutOptions = {
-  default: "/src/layouts/Layout.astro",
-  blog: "@layouts/BlogLayout.astro", // you can also use an alias
+  "pages/**/*": "/src/layouts/Layout.astro",
 };
 
 export default defineConfig({
@@ -86,41 +81,29 @@ export default defineConfig({
 
 The options object can have any properties following the pattern:
 
-- The `key` is the **folder or subfolder path** in pages.
-- The `value` is the **layout path**.
+- The `key` is the glob pattern to match the files
+- The `value` is the path to the layout file
 
 ```js
 {
-  blog: "/src/layouts/BlogLayout.astro",
-  "products/foo": "@layouts/ProductLayout.astro",
+  // Match all files in the "src/pages/blog" folder
+  "pages/blog/**/*": "/src/layouts/BlogLayout.astro",
+  // Match all files in the "src/content" folder
+  "content/**/*": "/src/layouts/Layout.astro",
+  // Match only top-level files in the "src/pages" folder
+  "pages/*": "/src/layouts/Layout.astro",
 }
 ```
 
 > **Note**
 > If you have aliases defined in your `tsconfig.json` file, you can use them to define a layout path.
-
-### Special keys
-
-#### `default`
-
-The `default` key is used to define a default layout for all files.
-
-```js
-{
-  default: "/src/layouts/Layout.astro",
-}
-```
-
-#### `folder`
-
-The `folder` key is used to define a different location for your content files. It is useful if your MD and MDX files are not in the `src/pages` folder. It defaults to `pages`.
-
-```js
-{
-  // this will look for files in the `src/content` folder
-  folder: "content",
-}
-```
+>
+> ```js
+> {
+>   // This layout path is using an alias
+>   "pages/**/*": "@layouts/Layout.astro",
+> }
+> ```
 
 ## Usage
 
@@ -130,39 +113,20 @@ You can define a default layout for all your files in `src/pages` folder.
 
 ```js
 {
-  default: "/src/layouts/Layout.astro",
+  "pages/**/*": "/src/layouts/Layout.astro",
 }
 ```
 
 ### Folder based layout
 
-You can define a layout for a folder or subfolder by using the folder path as a key.
+You can define a layout for a folder or subfolder
 
 ```js
 {
-  blog: "/src/layouts/BlogLayout.astro",
-  "products/foo": "@layouts/ProductLayout.astro",
-}
-```
-
-#### Layout inheritance
-
-If you have a layout defined for a folder, all subfolders will inherit the layout.
-
-Using the example bellow, `BlogLayout.astro` will be used for all files in the `blog` folder and its subfolders.
-
-```js
-{
-  blog: "@layouts/BlogLayout.astro";
-}
-```
-
-If you wish to override the layout for a subfolder, you can define a another layout for that subfolder.
-
-```js
-{
-  blog: "@layouts/BlogLayout.astro",
-  "blog/news": "@layouts/CustomLayout.astro"
+  // Match all files in the "src/pages/blog" folder
+  "pages/blog/**/*": "/src/layouts/BlogLayout.astro",
+  // Match all top-level files in the "src/pages/projects" folder
+  "pages/projects/*": "/src/layouts/ProjectLayout.astro",
 }
 ```
 
@@ -171,9 +135,10 @@ If you wish to override the layout for a subfolder, you can define a another lay
 You can override any layout defined in the `astro.config.mjs` file by adding a `layout` property to the frontmatter of your file. This will take precedence over any layout defined in the configuration.
 
 ```md
-# pages/blog/b.md
+# pages/blog/first-post.md
 ---
 layout: /src/layouts/Custom.astro
 ---
 This page is now using the `Custom.astro` layout instead of the `BlogLayout.astro` layout.
 ```
+

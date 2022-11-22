@@ -5,5 +5,5 @@
     "noEmit": true,
     "target": "ESNext"
   },
-  "include": ["src/index.ts"]
+  "include": ["src"]
 }
