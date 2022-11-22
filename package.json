@@ -7,7 +7,9 @@
     "lint": "prettier \"**/*.{js,ts,md,mjs,cjs,json}\"",
     "dev": "pnpm --filter astro-layouts run dev",
     "format": "pnpm -w run lint --write",
-    "test": "pnpm -r run test"
+    "build:packages": "pnpm --filter './packages/**' run build",
+    "build:demo": "pnpm --filter demo run build",
+    "test": "pnpm --filter './packages/**' test"
   },
   "repository": {
     "type": "git",

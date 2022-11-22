@@ -4,7 +4,7 @@
     "module": "ESNext",
     "allowJs": true,
     "noEmit": true,
-    "lib": ["esnext", "dom"]
+    "target": "ES6"
   },
-  "include": ["index.ts", "src"]
+  "include": ["src/index.ts"]
 }
