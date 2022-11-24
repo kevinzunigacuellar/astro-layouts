@@ -5,11 +5,10 @@
   "type": "module",
   "scripts": {
     "lint": "prettier \"**/*.{js,ts,md,mjs,cjs,json}\"",
-    "dev": "pnpm --filter astro-layouts run dev",
-    "format": "pnpm -w run lint --write",
-    "build:packages": "pnpm --filter './packages/**' run build",
-    "build:demo": "pnpm --filter demo run build",
-    "test": "pnpm --filter './packages/**' test"
+    "dev": "pnpm --filter './packages/**' run dev",
+    "format": "pnpm run lint --write",
+    "build": "pnpm --filter './packages/**' run build",
+    "test": "pnpm -r test"
   },
   "repository": {
     "type": "git",
