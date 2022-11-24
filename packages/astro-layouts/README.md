@@ -2,6 +2,8 @@
 
 Remark plugin to add **folder-based** to your MD and MDX files in Astro 🚀
 
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/github-eywxmv?file=README.md)
+
 ## Installation
 
 Install the package using your favorite package manager:
