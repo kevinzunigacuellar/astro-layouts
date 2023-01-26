@@ -9,6 +9,7 @@ test("adds Base.astro layout to all files in 'src/pages'", async () => {
   };
   const result = await renderMarkdown("# Hello, world!", {
     fileURL,
+    contentDir: new URL("src/content", import.meta.url),
     remarkPlugins: [[astroLayouts, layoutOptions]],
   });
 
@@ -25,6 +26,7 @@ test("adds BlogLayout.astro layout to all files and subfiles 'src/pages/blog'", 
   };
   const result = await renderMarkdown("# Hello, world!", {
     fileURL,
+    contentDir: new URL("src/content", import.meta.url),
     remarkPlugins: [[astroLayouts, layoutOptions]],
   });
   const pageMetadata = result.vfile.data.astro as {
@@ -43,6 +45,7 @@ test("adds latests option when globs overlap", async () => {
   };
   const result = await renderMarkdown("# Hello, world!", {
     fileURL,
+    contentDir: new URL("src/content", import.meta.url),
     remarkPlugins: [[astroLayouts, layoutOptions]],
   });
   const pageMetadata = result.vfile.data.astro as {
@@ -60,10 +63,25 @@ test("adds layout frontmatter to files outside pages", async () => {
   };
   const result = await renderMarkdown("# Hello, world!", {
     fileURL,
+    contentDir: new URL("src/content", import.meta.url),
     remarkPlugins: [[astroLayouts, layoutOptions]],
   });
   const pageMetadata = result.vfile.data.astro as {
     frontmatter: { layout: string };
   };
   expect(pageMetadata.frontmatter.layout).toBe(layoutOptions["content/**/*"]);
+});
+
+test("does nothing when options object is empty", async () => {
+  const fileURL = new URL("src/content/index.md", import.meta.url);
+  const layoutOptions: Record<string, string> = {};
+  const result = await renderMarkdown("# Hello, world!", {
+    fileURL,
+    contentDir: new URL("src/content", import.meta.url),
+    remarkPlugins: [[astroLayouts, layoutOptions]],
+  });
+  const pageMetadata = result.vfile.data.astro as {
+    frontmatter: { layout: string };
+  };
+  expect(pageMetadata.frontmatter).toEqual({});
 });
