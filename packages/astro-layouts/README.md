@@ -133,16 +133,3 @@ You can define a layout for a folder or subfolder
   "pages/projects/*": "/src/layouts/ProjectLayout.astro",
 }
 ```
-
-### Overriding layouts
-
-You can override any layout defined in the `astro.config.mjs` file by adding a `layout` property to the frontmatter of your file. This will take precedence over any layout defined in the configuration.
-
-```md
-# pages/blog/first-post.md
----
-layout: /src/layouts/Custom.astro
----
-This page is now using the `Custom.astro` layout instead of the `BlogLayout.astro` layout.
-```
-
