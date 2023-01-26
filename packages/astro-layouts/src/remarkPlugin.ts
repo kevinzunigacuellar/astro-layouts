@@ -1,7 +1,9 @@
 import type { RemarkPlugin } from "@astrojs/markdown-remark";
 import picomatch from "picomatch";
 
-export const astroLayout: RemarkPlugin = (options: Record<string, string>) => {
+export const astroLayout: RemarkPlugin = (
+  options: Record<string, string> = {}
+) => {
   return function (_tree, file) {
     const [filePath] = file.history;
     const path = filePath.replace(/.*src\//, "");
