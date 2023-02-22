@@ -2,7 +2,7 @@
 
 <img src="https://img.shields.io/npm/dm/astro-layouts?color=informational&logo=npm" alt="downloads badge">
 
-Remark plugin to add **folder-based** to your MD and MDX files in Astro 🚀
+Remark plugin to add **folder-based** layouts to your MD and MDX files in Astro 🚀
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/github-eywxmv?file=README.md)
 
